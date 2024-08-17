@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/palmaspizzaIMG/logopalmaspizza.png">
+    
+    <script src="palmaspizza.js"></script>
+    <link rel="stylesheet" href="palmaspizza.css">
+    <title>Palmas Pizzas</title>
+</head>
+<body style="margin: 0px; width: 100%;">
+    <header>
+        <div style="z-index: 10; width: 100%; background-color: #ff7700; height: 70px; position: fixed;">
+         <img src="/palmaspizzaIMG/carrito-img.png" style="height: 45px; width: 50px; margin-left: 1%; margin-top: 5px; background-color: #fff; border: 1px solid black; padding: 5px;" alt="">   <input type="number" value="0" id="total" style="border: 1px solid black; height: 45px; position: absolute; margin-left: 0px; margin-top: 5px; font-size: 140%; width: 40%;" readonly> <p class="button-select" id="ver-pedido" style="margin-top: -60px; width: 25%; margin-left: 200px; font-size: 120%; z-index: 220;"  onclick="verpedido()">Ver Pedido</p><input type="number" hidden id="totalarmatupizza" value="0" ><input type="number" hidden id="totalarmatuspizzas">
+        </div>
+        <br><br><br><br><br><br>
+    </header>
+
+<center>
+    <h1>Promociones</h1>
+    <button type="button" class="buttons" style="font-size: 80%; width: 90%; border-radius: 10px; border: solid #fff 2px;"  onclick="location.href='#pizzas-familiares'">
+        <img src="/palmaspizzaIMG/promocionfamiliar.png" style="width: 90%;" alt="">
+        <h1>↑ Ordenar ↑</h1>
+    </button>
+   
+<br><br>
+    <button  type="button" class="buttons" style="font-size: 80%; width: 90%; border-radius: 10px; border: solid #fff 2px;" onclick="location.href='#pizzas-medianas'">
+        <img src="/palmaspizzaIMG/promocionmediana.png" style="width: 90%;" alt="">
+        <h1>↑ Ordenar ↑</h1>
+    </button>
+    <br><br>
+    <br  id="pizzas-familiares">
+  
+    <h1 style="text-decoration: #ff5500 underline; font-size: 250%;">Menu</h1>
+ 
+    </center>
+
+
+
+  
+    <h2 style="margin-left: 3%;">Pizzas Familiares (38cm)</h2>
+    <input type="text" name="" hidden id="chillian-input">
+    <input type="text" name="" hidden id="pollobbq-input">
+    <input type="text" name="" hidden id="italiana-input">
+    <input type="text" name="" hidden id="cheeseburger-input">
+    <input type="text" name="" hidden id="hawaiana-input">
+    <input type="text" name="" hidden id="superbeef-input">
+    <input type="text" name="" hidden id="lucopizza-input">
+    <input type="text" name="" hidden id="napolitana-input">
+    <input type="text" name="" hidden id="superpepperoni-input">
+    <input type="text" name="" hidden id="vegetariana-input">
+    <div class="content-product" id="armarprimerapizzafamiliar" onclick="armatupizza()">
+        
+        <img src="/palmaspizzaIMG/armatupizzaimg.png" height="100" style="border-bottom: 0px;" alt="">
+    <h2 class="name-product">Arma tu Pizza</h2>
+    <p class="ing-product" style="text-decoration: underline #ff5500;">Crea tu propia pizza con la salsa e ingredientes a tu gusto</p>
+    
+    </div>
+        <div class="ventana-pizza" id="ventana-pizza-armatupizzafamiliar" hidden>
+            
+      <center><button type="button" class="buttons" onclick="seleccionarsalsa();APIZZAF();" id="agregar-armatupizzafamiliar-button">Armar</button> <button type="button" class="button-select" id="borrar-armatupizza-button" onclick="borrararmatupizza();">Cancelar</button></center>
+      <br><br><br><br></div>
+<div id="unitarias">
+    
+
+        </div>
+        </div>
+        <div class="content-product" hidden id="armarsegundapizza" onclick="armatuspizzas()">
+        
+            <img src="/palmaspizzaIMG/armatupizzaimg.png" height="100" style="border-bottom: 0px;" alt="">
+        <h2 class="name-product">Armar 2da Pizza</h2>
+        <p class="ing-product" style="text-decoration: underline #ff5500;">Arma tu proxima pizza <span style="text-decoration: underline white;">(opcional)</span></p>
+        </div>
+            <div class="ventana-pizza" id="ventana-pizza-armatuspizzas" hidden>
+                
+          <center><button type="button" class="buttons" onclick="seleccionarsalsa1();APIZZAFX();" id="agregar-armatuspizzas-button">Armar</button> <button type="button" class="button-select" id="borrar-armatuspizzas-button" onclick="borrararmatuspizzas()">Cancelar</button>
+        </center>
+          <br><br><br></div>
+<input type="text" hidden id="salsa">
+<input type="text" hidden id="salsa1">
+        <div class="modal" style="z-index: 7;" id="ventana-salsa">
+   <br> <div class="modal-content" style="margin-top: 0; margin-bottom: 0; height: 100%;  width: 100%; text-align: center;">
+        <center><br><br><h1 style="text-decoration: underline #ff5500;">Salsa</h1>
+            <h3>Selecciona la salsa de tu pizza</h3>
+<button class="button-select" id="armatupizza-button-salsapizza" onclick="armatupizzasalsapizza();addIngredient('Salsa Pizza');removeIngredient('Salsa BBQ')">Salsa Pizza</button>
+<br><br>
+            <button class="button-select" id="armatupizza-button-salsabbq" onclick="armatupizzasalsabbq();addIngredient('Salsa BBQ');removeIngredient('Salsa Pizza')">Salsa BarBeQue</button></center>
+            <center>
+               <center hidden id="siguiente-2">
+               <br><br><br>
+          
+                <button type="button"  style="position: relative;" id="siguiente-2-button" class="buttons" onclick="seleccionaring()">Siguiente</button>
+           
+         
+               </center>
+                
+    </div>
+        </div>
+        <div class="modal" id="ventana-ing-armatupizza" style="z-index: 8; height: 100%; width: 100%;">
+          
+            <div class="modal-content" style="min-height: 220%; width: 100%; margin-top: 0; margin-bottom: 0;">
+                <center>
+                    <br><br><br><h1 style="text-decoration: underline #ff5500;">Ingredientes</h1>
+                    <h3>Selecciona al menos 3 ingredientes</h3>
+                    <input type="text" hidden id="ingredients">
+                </center>
+                <br>
+                
+                <center>
+                    <input style="position: fixed; padding: 0; width: 15px; font-size: 180%; border: 0px solid; color: #ff5500;" type="number" value="0" name="" id="cantidading">
+                
+                </center>
+<br><br> 
+<style>
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+  .ing-button {
+    margin: 20px;
+    font-size: large;
+  }
+
+  .ing-button1{
+    margin: 20px;
+    font-size: x-large;
+    display: none;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="column">
+    <!-- Column 1 -->
+     <h2 style="text-decoration: underline #ff4800;">↓	Carnicos</h2>
+    <button type="button" class="ing-button" id="tocino1" onclick="tocino1();addIngredient('Tocino')"><img style="height: 80px;" src="/palmaspizzaIMG/tocino.png" alt="" ><span class="ing-span-name"><br>Tocino</span> <span style="text-decoration: underline rgb(0, 255, 0); display: none;" class="coste1000class" ><span style="color: green;">+</span>$1000</span></button>
+    <button type="button" class="ing-button1" id="tocino2" onclick="tocino2();removeIngredient('Tocino')"><img style="height: 80px;" src="/palmaspizzaIMG/tocino.png" alt="" ><br>✅</button>
+    
+    <button type="button" class="ing-button" id="salchicha1" onclick="salchicha1();addIngredient('Salchicha')"><img style="height: 80px;" src="/palmaspizzaIMG/salchicha.png" alt="" ><span class="ing-span-name"><br>Salchicha</span> <span style="text-decoration: underline rgb(0, 255, 0); display: none;" class="coste1000class" ><span style="color: green;">+</span>$1000</span></button>
+    <button type="button" class="ing-button1" id="salchicha2" onclick="salchicha2();removeIngredient('Salchicha')"><img style="height: 80px;" src="/palmaspizzaIMG/salchicha.png" alt="" ><br>✅</button>
+      
+  
+    <button type="button" class="ing-button" id="jamon1" onclick="jamon1();addIngredient('Jamón')"><img style="height: 80px;" src="/palmaspizzaIMG/jamon.png" alt="" ><span class="ing-span-name"><br>Jamón</span> <span style="text-decoration: underline rgb(0, 255, 0); display: none;" class="coste1000class" ><span style="color: green;">+</span>$1000</span></button>
+    <button type="button" class="ing-button1" id="jamon2" onclick="jamon2();removeIngredient('Jamón')"><img style="height: 80px;" src="/palmaspizzaIMG/jamon.png" alt="" ><br>✅</button>
+             
+    <button type="button" class="ing-button" id="pollo1" onclick="pollo1();addIngredient('Pollo')"><img style="height: 80px;" src="/palmaspizzaIMG/pollo.png" alt="" ><span class="ing-span-name"><br>Pollo</span> <span style="text-decoration: underline rgb(0, 255, 0); display: none;" class="coste1000class" ><span style="color: green;">+</span>$1000</span></button>
+    <button type="button" class="ing-button1" id="pollo2" onclick="pollo2();removeIngredient('Pollo')"><img style="height: 80px;" src="/palmaspizzaIMG/pollo.png" alt="" ><br>✅</button>
+    
+    <button type="button" class="ing-button" id="salame1" onclick="salame1();addIngredient('Salame')"><img style="height: 80px;" src="/palmaspizzaIMG/salame.png" alt="" ><span class="ing-span-name"><br>Salame</span> <span style="text-decoration: underline rgb(0, 255, 0); display: none;" class="coste1000class" ><span style="color: green;">+</span>$1000</span></button>
+    <button type="button" class="ing-button1" id="salame2" onclick="salame2();removeIngredient('Salame')"><img style="height: 80px;" src="/palmaspizzaIMG/salame.png" alt="" ><br>✅</button>
+    
+    <button type="button" class="ing-button" id="churrasco1" onclick="churrasco1();addIngredient('Churrasco')"><img style="height: 80px;" src="/palmaspizzaIMG/churrasco.png" alt="" ><span class="ing-span-name"><br>Churrasco</span> <span style="text-decoration: underline rgb(0, 255, 0); display: none;" class="coste1000class" ><span style="color: green;">+</span>$1000</span></button>
+    <button type="button" class="ing-button1" id="churrasco2" onclick="churrasco2();removeIngredient('Churrasco')"><img style="height: 80px;" src="/palmaspizzaIMG/churrasco.png" alt="" ><br>✅</button>
+    
+    <button type="button" class="ing-button" id="pepperoni1" onclick="pepperoni1();addIngredient('Pepperoni')"><img style="height: 80px;" src="/palmaspizzaIMG/pepperoni.png" alt="" ><span class="ing-span-name"><br>Pepperoni</span> <span style="text-decoration: underline rgb(0, 255, 0); display: none;" class="coste1000class" ><span style="color: green;">+</span>$1000</span></button>
+    <button type="button" class="ing-button1" id="pepperoni2" onclick="pepperoni2();removeIngredient('Pepperoni')"><img style="height: 80px;" src="/palmaspizzaIMG/pepperoni.png" alt="" ><br>✅</button>
+    
+    
+
+  </div>
+  
+  <div class="column">
+    <!-- Column 2 -->
+     <h2 style="text-decoration: underline #ff4800;">Vegetales↓</h2>
+    <button type="button" class="ing-button" id="choclo1" onclick="choclo1();addIngredient('Choclo')"><img style="height: 80px;" src="/palmaspizzaIMG/choclo.png" alt="" ><span class="ing-span-name"><br>Choclo</span> <span style="text-decoration: underline rgb(0, 255, 0); display: none;" class="coste1000class" ><span style="color: green;">+</span>$1000</span></button>
+    <button type="button" class="ing-button1" id="choclo2" onclick="choclo2();removeIngredient('Choclo')"><img style="height: 80px;" src="/palmaspizzaIMG/choclo.png" alt="" ><br>✅</button>
+     
+    <button type="button" class="ing-button" id="aceitunas1" onclick="aceitunas1();addIngredient('Aceitunas')"><img style="height: 80px;" src="/palmaspizzaIMG/aceitunas.png" alt="" ><span class="ing-span-name"><br>Aceitunas</span> <span style="text-decoration: underline rgb(0, 255, 0); display: none;" class="coste1000class" ><span style="color: green;">+</span>$1000</span></button>
+    <button type="button" class="ing-button1" id="aceitunas2" onclick="aceitunas2();removeIngredient('Aceitunas')"><img style="height: 80px;" src="/palmaspizzaIMG/aceitunas.png" alt="" ><br>✅</button>
+     
+    <button type="button" class="ing-button" id="champiñones1" onclick="champiñones1();addIngredient('Champiñones')"><img style="height: 80px;" src="/palmaspizzaIMG/champiñones.png" alt="" ><span class="ing-span-name" style="font-size: 78%;"><br>Champiñón</span> <span style="text-decoration: underline rgb(0, 255, 0); display: none;" class="coste1000class" ><span style="color: green;">+</span>$1000</span></button>
+    <button type="button" class="ing-button1" id="champiñones2" onclick="champiñones2();removeIngredient('Champiñones')"><img style="height: 80px;" src="/palmaspizzaIMG/champiñones.png" alt="" ><br>✅</button>
+   
+    <button type="button" class="ing-button" id="tomate1" onclick="tomate1();addIngredient('Tomate')"><img style="height: 80px;" src="/palmaspizzaIMG/tomate.png" alt="" ><span class="ing-span-name" style="font-size: 78%;"><br>Tomate</span> <span style="text-decoration: underline rgb(0, 255, 0); display: none;" class="coste1000class" ><span style="color: green;">+</span>$1000</span></button>
+    <button type="button" class="ing-button1" id="tomate2" onclick="tomate2();removeIngredient('Tomate')"><img style="height: 80px;" src="/palmaspizzaIMG/tomate.png" alt="" ><br>✅</button>
+   
+    <button type="button" class="ing-button" id="pimenton1" onclick="pimenton1();addIngredient('Pimentón')"><img style="height: 80px;" src="/palmaspizzaIMG/pimenton.png" alt="" ><span class="ing-span-name" style="font-size: 78%;"><br>Pimentón</span> <span style="text-decoration: underline rgb(0, 255, 0); display: none;" class="coste1000class" ><span style="color: green;">+</span>$1000</span></button>
+    <button type="button" class="ing-button1" id="pimenton2" onclick="pimenton2();removeIngredient('Pimentón')"><img style="height: 80px;" src="/palmaspizzaIMG/pimenton.png" alt="" ><br>✅</button>
+   
+    <button type="button" class="ing-button" id="piña1" onclick="piña1();addIngredient('Piña')"><img style="height: 80px;" src="/palmaspizzaIMG/piña.png" alt="" ><span class="ing-span-name" style="font-size: 78%;"><br>Piña</span> <span style="text-decoration: underline rgb(0, 255, 0); display: none;" class="coste1000class" ><span style="color: green;">+</span>$1000</span></button>
+    <button type="button" class="ing-button1" id="piña2" onclick="piña2();removeIngredient('Piña')"><img style="height: 80px;" src="/palmaspizzaIMG/piña.png" alt="" ><br>✅</button>
+   
+    <button type="button" class="ing-button" id="cebolla1" onclick="cebolla1();addIngredient('Cebolla')"><img style="height: 80px;" src="/palmaspizzaIMG/cebolla.png" alt="" ><span class="ing-span-name" style="font-size: 78%;"><br>Cebolla</span> <span style="text-decoration: underline rgb(0, 255, 0); display: none;" class="coste1000class" ><span style="color: green;">+</span>$1000</span></button>
+    <button type="button" class="ing-button1" id="cebolla2" onclick="cebolla2();removeIngredient('Cebolla')"><img style="height: 80px;" src="/palmaspizzaIMG/cebolla.png" alt="" ><br>✅</button>
+   
+
+  </div>
+         
+</div>
+<button type="button"  id="agregaralpedido1" class="buttons" style=" width: 100%;   font-size: 190%;" onclick="agregaralpedido1()">Agregar al Pedido</button>
+           
+
+
+
+
+          
+           <br><br> </div>
+        </div>
+ 
+
+
+      
+        
+
+           <div class="modal" id="ventana-salsa1" style="z-index: 7;">
+            <div class="modal-content" style="margin-top: 0; min-height: 1000px; max-height: 1150px;">
+                <center><br><br><br><br><h1 style="text-decoration: underline #ff5500;">Salsa</h1>
+                    <h3>Selecciona la salsa de tu <span style="text-decoration: underline #ff5500;">2da</span> pizza</h3>
+        <button class="button-select" id="armatuspizzas-button-salsapizza" onclick="armatuspizzassalsapizza();addIngredientX('Salsa Pizza');removeIngredientX('Salsa BBQ')">Salsa Pizza</button>
+        <br><br>
+                    <button class="button-select" id="armatuspizzas-button-salsabbq" onclick="armatuspizzassalsabbq();addIngredientX('Salsa BBQ');removeIngredientX('Salsa Pizza')">Salsa BarBeQue</button></center>
+                
+                      <center>
+                        <center style="display: none;" id="siguiente-6">
+                            <br>
+                            <br><br>
+                     
+                            <button type="button"  style="position: relative; " id="siguiente-6-button" class="buttons" onclick="seleccionaring1()">Siguiente</button>
+                       
+                     
+                           </center>
+                            
+            </div>
+
+           </div>
+
+
+           <div class="modal" id="ventana-ing-armatuspizzas" style="z-index: 8; height: 110%; width: 100%;">
+          
+            <div class="modal-content" style="min-height: 100%; width: 100%; margin-top: 0; margin-bottom: 0;">
+                <center>
+                    <br><br><br><h1 style="text-decoration: underline #ff5500;">Ingredientes</h1>
+                    <h3>Selecciona al menos 3 ingredientes</h3>
+                    <input type="text" hidden id="ingredientsX">
+                </center>
+                <br>
+                
+             
+                <center>
+                    <input style="position: fixed; padding: 0; width: 15px; font-size: 180%; border: 0px solid; color: #ff5500;" type="text" value="0" name="" id="cantidading1">
+                
+                </center>
+        <br><br>
+               <div class="container">
+  <div class="column">
+    <!-- Column 1 -->
+     <h2 style="text-decoration: underline #ff4800;">↓	Carnicos</h2>
+    <button type="button" class="ing-button" id="tocino3" onclick="tocino3();addIngredientX('Tocino')"><img style="height: 80px;" src="/palmaspizzaIMG/tocino.png" alt="" ><span class="ing-span-name-1"><br>Tocino</span> <span style="text-decoration: underline rgb(0, 255, 0); display: none;" class="coste10001class-1" ><span style="color: green;">+</span>$1000</span></button>
+    <button type="button" class="ing-button1" id="tocino5" onclick="tocino5();removeIngredientX('Tocino')"><img style="height: 80px;" src="/palmaspizzaIMG/tocino.png" alt="" ><br>✅</button>
+    
+    <button type="button" class="ing-button" id="salchicha3" onclick="salchicha3();addIngredientX('Salchicha')"><img style="height: 80px;" src="/palmaspizzaIMG/salchicha.png" alt="" ><span class="ing-span-name-1"><br>Salchicha</span> <span style="text-decoration: underline rgb(0, 255, 0); display: none;" class="coste10001class-1" ><span style="color: green;">+</span>$1000</span></button>
+    <button type="button" class="ing-button1" id="salchicha5" onclick="salchicha5();removeIngredientX('Salchicha')"><img style="height: 80px;" src="/palmaspizzaIMG/salchicha.png" alt="" ><br>✅</button>
+      
+  
+    <button type="button" class="ing-button" id="jamon3" onclick="jamon3();addIngredientX('Jamón')"><img style="height: 80px;" src="/palmaspizzaIMG/jamon.png" alt="" ><span class="ing-span-name-1"><br>Jamón</span> <span style="text-decoration: underline rgb(0, 255, 0); display: none;" class="coste10001class-1" ><span style="color: green;">+</span>$1000</span></button>
+    <button type="button" class="ing-button1" id="jamon5" onclick="jamon5();removeIngredientX('Jamón')"><img style="height: 80px;" src="/palmaspizzaIMG/jamon.png" alt="" ><br>✅</button>
+             
+    <button type="button" class="ing-button" id="pollo3" onclick="pollo3();addIngredientX('Pollo')"><img style="height: 80px;" src="/palmaspizzaIMG/pollo.png" alt="" ><span class="ing-span-name-1"><br>Pollo</span> <span style="text-decoration: underline rgb(0, 255, 0); display: none;" class="coste10001class-1" ><span style="color: green;">+</span>$1000</span></button>
+    <button type="button" class="ing-button1" id="pollo5" onclick="pollo5();removeIngredientX('Pollo')"><img style="height: 80px;" src="/palmaspizzaIMG/pollo.png" alt="" ><br>✅</button>
+    
+    <button type="button" class="ing-button" id="salame3" onclick="salame3();addIngredientX('Salame')"><img style="height: 80px;" src="/palmaspizzaIMG/salame.png" alt="" ><span class="ing-span-name-1"><br>Salame</span> <span style="text-decoration: underline rgb(0, 255, 0); display: none;" class="coste10001class-1" ><span style="color: green;">+</span>$1000</span></button>
+    <button type="button" class="ing-button1" id="salame5" onclick="salame5();removeIngredientX('Salame')"><img style="height: 80px;" src="/palmaspizzaIMG/salame.png" alt="" ><br>✅</button>
+    
+    <button type="button" class="ing-button" id="churrasco3" onclick="churrasco3();addIngredientX('Churrasco')"><img style="height: 80px;" src="/palmaspizzaIMG/churrasco.png" alt="" ><span class="ing-span-name-1"><br>Churrasco</span> <span style="text-decoration: underline rgb(0, 255, 0); display: none;" class="coste10001class-1" ><span style="color: green;">+</span>$1000</span></button>
+    <button type="button" class="ing-button1" id="churrasco5" onclick="churrasco5();removeIngredientX('Churrasco')"><img style="height: 80px;" src="/palmaspizzaIMG/churrasco.png" alt="" ><br>✅</button>
+    
+    <button type="button" class="ing-button" id="pepperoni3" onclick="pepperoni3();addIngredientX('Pepperoni')"><img style="height: 80px;" src="/palmaspizzaIMG/pepperoni.png" alt="" ><span class="ing-span-name-1"><br>Pepperoni</span> <span style="text-decoration: underline rgb(0, 255, 0); display: none;" class="coste10001class-1" ><span style="color: green;">+</span>$1000</span></button>
+    <button type="button" class="ing-button1" id="pepperoni5" onclick="pepperoni5();removeIngredientX('Pepperoni')"><img style="height: 80px;" src="/palmaspizzaIMG/pepperoni.png" alt="" ><br>✅</button>
+    
+    
+
+  </div>
+  
+  <div class="column">
+    <!-- Column 2 -->
+     <h2 style="text-decoration: underline #ff4800;">Vegetales↓</h2>
+    <button type="button" class="ing-button" id="choclo3" onclick="choclo3();addIngredientX('Choclo')"><img style="height: 80px;" src="/palmaspizzaIMG/choclo.png" alt="" ><span class="ing-span-name-1"><br>Choclo</span> <span style="text-decoration: underline rgb(0, 255, 0); display: none;" class="coste10001class-1" ><span style="color: green;">+</span>$1000</span></button>
+    <button type="button" class="ing-button1" id="choclo5" onclick="choclo5();removeIngredientX('Choclo')"><img style="height: 80px;" src="/palmaspizzaIMG/choclo.png" alt="" ><br>✅</button>
+     
+    <button type="button" class="ing-button" id="aceitunas3" onclick="aceitunas3();addIngredientX('Aceitunas')"><img style="height: 80px;" src="/palmaspizzaIMG/aceitunas.png" alt="" ><span class="ing-span-name-1"><br>Aceitunas</span> <span style="text-decoration: underline rgb(0, 255, 0); display: none;" class="coste10001class-1" ><span style="color: green;">+</span>$1000</span></button>
+    <button type="button" class="ing-button1" id="aceitunas5" onclick="aceitunas5();removeIngredientX('Aceitunas')"><img style="height: 80px;" src="/palmaspizzaIMG/aceitunas.png" alt="" ><br>✅</button>
+     
+    <button type="button" class="ing-button" id="champiñones3" onclick="champiñones3();addIngredientX('Champiñones')"><img style="height: 80px;" src="/palmaspizzaIMG/champiñones.png" alt="" ><span class="ing-span-name-1" style="font-size: 78%;"><br>Champiñón</span> <span style="text-decoration: underline rgb(0, 255, 0); display: none;" class="coste10001class-1" ><span style="color: green;">+</span>$1000</span></button>
+    <button type="button" class="ing-button1" id="champiñones5" onclick="champiñones5();removeIngredientX('Champiñones')"><img style="height: 80px;" src="/palmaspizzaIMG/champiñones.png" alt="" ><br>✅</button>
+   
+    <button type="button" class="ing-button" id="tomate3" onclick="tomate3();addIngredientX('Tomate')"><img style="height: 80px;" src="/palmaspizzaIMG/tomate.png" alt="" ><span class="ing-span-name-1" style="font-size: 78%;"><br>Tomate</span> <span style="text-decoration: underline rgb(0, 255, 0); display: none;" class="coste10001class-1" ><span style="color: green;">+</span>$1000</span></button>
+    <button type="button" class="ing-button1" id="tomate5" onclick="tomate5();removeIngredientX('Tomate')"><img style="height: 80px;" src="/palmaspizzaIMG/tomate.png" alt="" ><br>✅</button>
+   
+    <button type="button" class="ing-button" id="pimenton3" onclick="pimenton3();addIngredientX('Pimentón')"><img style="height: 80px;" src="/palmaspizzaIMG/pimenton.png" alt="" ><span class="ing-span-name-1" style="font-size: 78%;"><br>Pimentón</span> <span style="text-decoration: underline rgb(0, 255, 0); display: none;" class="coste10001class-1" ><span style="color: green;">+</span>$1000</span></button>
+    <button type="button" class="ing-button1" id="pimenton5" onclick="pimenton5();removeIngredientX('Pimentón')"><img style="height: 80px;" src="/palmaspizzaIMG/pimenton.png" alt="" ><br>✅</button>
+   
+    <button type="button" class="ing-button" id="piña3" onclick="piña3();addIngredientX('Piña')"><img style="height: 80px;" src="/palmaspizzaIMG/piña.png" alt="" ><span class="ing-span-name-1" style="font-size: 78%;"><br>Piña</span> <span style="text-decoration: underline rgb(0, 255, 0); display: none;" class="coste10001class-1" ><span style="color: green;">+</span>$1000</span></button>
+    <button type="button" class="ing-button1" id="piña5" onclick="piña5();removeIngredientX('Piña')"><img style="height: 80px;" src="/palmaspizzaIMG/piña.png" alt="" ><br>✅</button>
+   
+    <button type="button" class="ing-button" id="cebolla3" onclick="cebolla3();addIngredientX('Cebolla')"><img style="height: 80px;" src="/palmaspizzaIMG/cebolla.png" alt="" ><span class="ing-span-name-1" style="font-size: 78%;"><br>Cebolla</span> <span style="text-decoration: underline rgb(0, 255, 0); display: none;" class="coste10001class-1" ><span style="color: green;">+</span>$1000</span></button>
+    <button type="button" class="ing-button1" id="cebolla5" onclick="cebolla5();removeIngredientX('Cebolla')"><img style="height: 80px;" src="/palmaspizzaIMG/cebolla.png" alt="" ><br>✅</button>
+   
+
+  </div>
+         
+</div>
+<button type="button"  id="agregaralpedido3" class="buttons" style=" width: 100%;   font-size: 190%;" onclick="agregaralpedido3()">Agregar al Pedido</button>
+           
+
+
+
+
+<br><br> <br><br>
+           <br><br> </div>
+        </div>   <br> </div>
+        </div>
+<br><br><br>
+    <div class="modal" style="z-index: 10;" id="pedido">
+        <button type="button" class="button-select" style="margin-left: 20px; width: 60px; height: 60px; position: absolute; padding-top: 10px; padding-bottom: 30px; font-size: 200%; color: black; margin-top: 25px;"  onclick="cerrartarjeta();">×</button>
+      
+        <div class="modal-content" id="tarjeta" style="border: 5px solid black;">
+            <center>
+                <br>
+                <button type="button" class="buttons" style="margin-left: 100px; border: #000 solid 5px; " onclick="continuarbutton();" id="continuar-button">Continuar</button>
+                <h1 style="text-decoration: #ff5500 underline;">Pedido</h1>
+                <h2 id="2-familiares" hidden>2 Familiares</h2>
+                <h2 id="2-medianas" hidden>2 Medianas</h2>
+            </center>
+            <div class="content-product" style="display: none;" id="ventana-pizza-armatupizza-agregada">
+        
+                <img src="/palmaspizzaIMG/armatupizzaimg.png" height="100" style="border-bottom: 0px;" alt="">
+            <h2 class="name-product-1">Ingredientes:</h2>
+            <textarea style="border: 0px;"  readonly type=""  id="ingredientsX1" class="ing-armatupizza"></textarea>
+            <p class="price-product">Mi Pizza</p>
+            </div>
+            <br><br>
+         <div class="content-product" style="display: none;" id="ventana-pizza-armatuspizzas-agregada">
+                
+                        <img src="/palmaspizzaIMG/armatupizzaimg.png" height="100" style="border-bottom: 0px;" alt="">
+                    <h2 class="name-product-1">Ingredientes:</h2>
+                    <textarea  style="border: 0px;"  readonly type="" id="ingredientsX2" class="ing-armatupizza"></textarea>
+                    <p class="price-product">Mi Pizza 2</p>
+                    
+                    </div>
+            
+        
+            
+
+            <div class="content-product" style="display: none;" id="ventana-pizza-chillian-familiar-agregada">
+        
+                <img src="/palmaspizzaIMG/chillian.jpg" height="100" style="border-bottom: 0px;" alt="">
+            <h2 class="name-product-1">Chillian</h2>
+            <p class="ing-product-1">Salsa, Queso, Jamón, Pepperoni, Pimentón, Cebolla</p>
+            <p class="price-product">$10.990</p>
+            <input type="text" name="" id="cantidad-pizza-chillian-familiar" class="cant-product">
+            </div>
+            <br>
+
+
+            <div class="content-product" style="display: none;" id="ventana-pizza-pollobbq-familiar-agregada">
+                <img src="/palmaspizzaIMG/pollobbq.png" height="100" alt="">
+                <h2 class="name-product-1">Pollo BBQ</h2>
+                <p class="ing-product-1">Salsa BarBeQue, Queso, Cebolla, Pollo, Tocino</p>
+                <p class="price-product">$10.990</p>
+               
+            <input type="text" name="" id="cantidad-pizza-pollobbq-familiar" class="cant-product">
+            </div>
+            <br>
+            <div class="content-product" style="display: none;" id="ventana-pizza-italiana-familiar-agregada">
+                <img src="/palmaspizzaIMG/italiana.png" height="100" alt="">
+                <h2 class="name-product-1">Italiana</h2>
+                <p class="ing-product-1">Salsa, Queso, Champiñón, Aceituna, Pepperoni, Salchicha</p>
+                <p class="price-product">$10.990</p>
+             
+            <input type="text" name="" id="cantidad-pizza-italiana-familiar" class="cant-product">
+            </div>
+            <br>
+            <div class="content-product" style="display: none;" id="ventana-pizza-cheeseburger-familiar-agregada">
+                <img src="/palmaspizzaIMG/cheeseburger.png" height="100" alt="">
+                <h2 class="name-product-1">Cheeseburger</h2>
+                <p class="ing-product-1">Salsa BarBeQue, Queso, Cebolla, Tocino, Carne</p>
+                <p class="price-product">$10.990</p>
+              
+            <input type="text" name="" id="cantidad-pizza-cheeseburger-familiar" class="cant-product">
+            </div>
+            <br>
+            <div class="content-product" style="display: none;" id="ventana-pizza-hawaiana-familiar-agregada">
+                <img src="/palmaspizzaIMG/hawaiana.png" height="100" alt="">
+                <h2 class="name-product-1">Hawaiana</h2>
+                <p class="ing-product-1">Salsa, Queso, Jamón, Piña</p>
+                <p class="price-product">$10.990</p>
+               
+            <input type="text" name="" id="cantidad-pizza-hawaiana-familiar" class="cant-product">
+            </div>
+            <br>
+            <div class="content-product" style="display: none;" id="ventana-pizza-superbeef-familiar-agregada">
+                <img src="/palmaspizzaIMG/superbeef.png" height="100" alt="">
+                <h2 class="name-product-1">Super Beef</h2>
+                <p class="ing-product-1">Salsa, Queso, Jamón, Pepperoni, Salchicha, Tocino</p>
+                <p class="price-product">$10.990</p>
+                
+            <input type="text" name="" id="cantidad-pizza-superbeef-familiar" class="cant-product">
+            </div>
+            <br>
+            <div class="content-product" style="display: none;" id="ventana-pizza-lucopizza-familiar-agregada">
+                <img src="/palmaspizzaIMG/lucopizza.png" height="100" alt="">
+                <h2 class="name-product-1">Luco Pizza</h2>
+                <p class="ing-product-1">Salsa, Queso, Tomate, Churrasco, Oregano</p>
+                <p class="price-product">$10.990</p>
+                
+            <input type="text" name="" id="cantidad-pizza-lucopizza-familiar" class="cant-product">
+            </div>
+            <br>
+            <div class="content-product" style="display: none;" id="ventana-pizza-superpepperoni-familiar-agregada">
+        
+                <img src="/palmaspizzaIMG/superpepperoni.png" height="100" style="border-bottom: 0px;" alt="">
+            <h2 class="name-product-1">Super Pepperoni</h2>
+            <p class="ing-product-1">Salsa, Queso, Extra Pepperoni</p>
+            <p class="price-product">$10.990</p>
+            <input type="text" name="" id="cantidad-pizza-superpepperoni-familiar" class="cant-product">
+            </div>
+            <br>
+            <div class="content-product" style="display: none;" id="ventana-pizza-napolitana-familiar-agregada">
+                <img src="/palmaspizzaIMG/napolitana.png" height="100" alt="">
+                <h2 class="name-product-1">Napolitana</h2>
+                <p class="ing-product-1">Salsa, Queso, Tomate</p>
+                <p class="price-product">$10.990</p>
+              
+            <input type="text" name="" id="cantidad-pizza-napolitana-familiar" class="cant-product">
+            </div>
+            <br>
+            <div class="content-product" style="display: none;" id="ventana-pizza-superpepperoni-familiar-agregada">
+                <img src="/palmaspizzaIMG/superpepperoni.png" height="100" alt="">
+                <h2 class="name-product-1">Super Pepperoni</h2>
+                <p class="ing-product-1">Salsa, Queso, Extra Pepperoni</p>
+                <p class="price-product">$10.990</p>
+               
+            <input type="text" name="" id="cantidad-pizza-superpepperoni-familiar" class="cant-product">
+            </div>
+            <br>
+            <div class="content-product" style="display: none;" id="ventana-pizza-vegetariana-familiar-agregada">
+                <img src="/palmaspizzaIMG/vegetariana.png" height="100" alt="">
+                <h2 class="name-product-1">Vegetariana</h2>
+                <p class="ing-product-1">Salsa, Queso, Cebolla, Tomate, Champiñón, Choclo, Pimentón</p>
+                <p class="price-product">$10.990</p>
+                
+            <input type="text" name="" id="cantidad-pizza-vegetariana-familiar" class="cant-product">
+            </div>
+            <br>
+            
+            
+
+
+
+
+
+            <div class="content-product" style="display: none;" id="ventana-pizza-chillian-mediana-agregada">
+        
+                <img src="/palmaspizzaIMG/chillian.jpg" height="100" style="border-bottom: 0px;" alt="">
+            <h2 class="name-product-1">Chillian</h2>
+            <p class="ing-product-1">Salsa, Queso, Jamón, Pepperoni, Pimentón, Cebolla</p>
+            <p class="price-product">$8.990</p>
+            <input type="text" name="" id="cantidad-pizza-chillian-mediana" class="cant-product">
+            </div>
+            <br>
+
+
+            <div class="content-product" style="display: none;" id="ventana-pizza-pollobbq-mediana-agregada">
+
+                <img src="/palmaspizzaIMG/pollobbq.png" height="100" alt="">
+                <h2 class="name-product-1">Pollo BBQ</h2>
+                <p class="ing-product-1">Salsa BarBeQue, Queso, Cebolla, Pollo, Tocino</p>
+                <p class="price-product">$8.990</p>
+               
+            <input type="text" name="" id="cantidad-pizza-pollobbq-mediana" class="cant-product">
+            </div>
+            <br>
+            <div class="content-product" style="display: none;" id="ventana-pizza-italiana-mediana-agregada">
+                <img src="/palmaspizzaIMG/italiana.png" height="100" alt="">
+                <h2 class="name-product-1">Italiana</h2>
+                <p class="ing-product-1">Salsa, Queso, Champiñón, Aceituna, Pepperoni, Salchicha</p>
+                <p class="price-product">$8.990</p>
+             
+            <input type="text" name="" id="cantidad-pizza-italiana-mediana" class="cant-product">
+            </div>
+            <br>
+            <div class="content-product" style="display: none;" id="ventana-pizza-cheeseburger-mediana-agregada">
+                <img src="/palmaspizzaIMG/cheeseburger.png" height="100" alt="">
+                <h2 class="name-product-1">Cheeseburger</h2>
+                <p class="ing-product-1">Salsa BarBeQue, Queso, Cebolla, Tocino, Carne</p>
+                <p class="price-product">$8.990</p>
+              
+            <input type="text" name="" id="cantidad-pizza-cheeseburger-mediana" class="cant-product">
+            </div>
+            <br>
+            <div class="content-product" style="display: none;" id="ventana-pizza-hawaiana-mediana-agregada">
+                <img src="/palmaspizzaIMG/hawaiana.png" height="100" alt="">
+                <h2 class="name-product-1">Hawaiana</h2>
+                <p class="ing-product-1">Salsa, Queso, Jamón, Piña</p>
+                <p class="price-product">$8.990</p>
+               
+            <input type="text" name="" id="cantidad-pizza-hawaiana-mediana" class="cant-product">
+            </div>
+            <br>
+            <div class="content-product" style="display: none;" id="ventana-pizza-superbeef-mediana-agregada">
+                <img src="/palmaspizzaIMG/superbeef.png" height="100" alt="">
+                <h2 class="name-product-1">Super Beef</h2>
+                <p class="ing-product-1">Salsa, Queso, Jamón, Pepperoni, Salchicha, Tocino</p>
+                <p class="price-product">$8.990</p>
+                
+            <input type="text" name="" id="cantidad-pizza-superbeef-mediana" class="cant-product">
+            </div>
+            <br>
+            <div class="content-product" style="display: none;" id="ventana-pizza-lucopizza-mediana-agregada">
+                <img src="/palmaspizzaIMG/lucopizza.png" height="100" alt="">
+                <h2 class="name-product-1">Luco Pizza</h2>
+                <p class="ing-product-1">Salsa, Queso, Tomate, Churrasco, Oregano</p>
+                <p class="price-product">$8.990</p>
+                
+            <input type="text" name="" id="cantidad-pizza-lucopizza-mediana" class="cant-product">
+            </div>
+            <br>
+            <div class="content-product" style="display: none;" id="ventana-pizza-napolitana-mediana-agregada">
+                <img src="/palmaspizzaIMG/napolitana.png" height="100" alt="">
+                <h2 class="name-product-1">Napolitana</h2>
+                <p class="ing-product-1">Salsa, Queso, Tomate</p>
+                <p class="price-product">$8.990</p>
+              
+            <input type="text" name="" id="cantidad-pizza-napolitana-mediana" class="cant-product">
+            </div>
+            <br>
+
+            <div class="content-product" style="display: none;" id="ventana-pizza-superpepperoni-mediana-agregada">
+                <img src="/palmaspizzaIMG/superpepperoni.png" height="100" alt="">
+                <h2 class="name-product-1">Super Pepperoni</h2>
+                <p class="ing-product-1">Salsa, Queso, Extra Pepperoni</p>
+                <p class="price-product">$8.990</p>
+               
+            <input type="text" name="" id="cantidad-pizza-superpepperoni-mediana" class="cant-product">
+            </div>
+           <br>
+            <div class="content-product" style="display: none;" id="ventana-pizza-vegetariana-mediana-agregada">
+                <img src="/palmaspizzaIMG/vegetariana.png" height="100" alt="">
+                <h2 class="name-product-1">Vegetariana</h2>
+                <p class="ing-product-1">Salsa, Queso, Cebolla, Tomate, Champiñón, Choclo, Pimentón</p>
+                <p class="price-product">$8.990</p>
+                
+            <input type="text" name="" id="cantidad-pizza-vegetariana-mediana" class="cant-product">
+            </div>
+            
+            
+
+
+            </div>
+        </div>
+    </div>
+
+
+    
+    
+<!-- chillian familiar -->
+    
+<div class="content-product" onclick="chillianfamiliar()">
+        
+    <img src="/palmaspizzaIMG/chillian.jpg" height="100" style="border-bottom: 0px;" alt="">
+<h2 class="name-product">Chillian</h2>
+<p class="ing-product">Salsa, Queso, Jamón, Pepperoni, Pimentón, Cebolla</p>
+<p class="price-product">$10.990</p>
+</div>
+    <div class="ventana-pizza" id="ventana-pizza-chillian-familiar" hidden>
+        
+  <center><button type="button" class="buttons zxclass" onclick="agregarchillianfamiliar()" id="agregar-chillian-familiar-button">Agregar</button> <button type="button" class="button-select" id="borrar-chillian-button" onclick="borrarchillianfamiliar()">Cancelar</button></center>
+  <br><br><br></div>
+
+    <br><br>
+    <div class="content-product" onclick="pollobbqfamiliar()">
+        
+        <img src="/palmaspizzaIMG/pollobbq.png" height="100" style="border-bottom: 0px;" alt="">
+    <h2 class="name-product">Pollo BBQ</h2>
+    <p class="ing-product">Salsa BarBeQue, Queso, Jamón, Pepperoni, Pimentón, Cebolla</p>
+    <p class="price-product">$10.990</p>
+    </div>
+        <div class="ventana-pizza" id="ventana-pizza-pollobbq-familiar" hidden>
+            
+      <center><button type="button" class="buttons" onclick="agregarpollobbqfamiliar()" id="agregar-pollobbq-familiar-button">Agregar</button> <button type="button" class="button-select" id="borrar-pollobbq-button" onclick="borrarpollobbqfamiliar()">Cancelar</button></center>
+      <br><br><br></div>
+    <br><br>
+ <div class="content-product" onclick="italianafamiliar()">
+        
+    <img src="/palmaspizzaIMG/italiana.png" height="100" style="border-bottom: 0px;" alt="">
+<h2 class="name-product">Italiana</h2>
+<p class="ing-product">Salsa, Queso, Champiñón, Aceituna, Pepperoni, Salchicha</p>
+<p class="price-product">$10.990</p>
+</div>
+    <div class="ventana-pizza" id="ventana-pizza-italiana-familiar" hidden>
+        
+  <center><button type="button" class="buttons" onclick="agregaritalianafamiliar()" id="agregar-italiana-familiar-button">Agregar</button> <button type="button" class="button-select" id="borrar-italiana-button" onclick="borraritalianafamiliar()">Cancelar</button></center>
+  <br><br><br></div>
+    <br>
+    <br>
+    <div class="content-product" onclick="cheeseburgerfamiliar()">
+        
+        <img src="/palmaspizzaIMG/cheeseburger.png" height="100" style="border-bottom: 0px;" alt="">
+    <h2 class="name-product">Cheeseburger</h2>
+    <p class="ing-product">Salsa BarBeQue, Queso, Cebolla, Tocino, Carne</p>
+    <p class="price-product">$10.990</p>
+    </div>
+        <div class="ventana-pizza" id="ventana-pizza-cheeseburger-familiar" hidden>
+            
+      <center><button type="button" class="buttons" onclick="agregarcheeseburgerfamiliar()" id="agregar-cheeseburger-familiar-button">Agregar</button> <button type="button" class="button-select" id="borrar-cheeseburger-button" onclick="borrarcheeseburgerfamiliar()">Cancelar</button></center>
+      <br><br><br></div>
+    <br>
+    <br>
+    <div class="content-product" onclick="hawaianafamiliar()">
+        
+        <img src="/palmaspizzaIMG/hawaiana.png" height="100" style="border-bottom: 0px;" alt="">
+    <h2 class="name-product">Hawaiana</h2>
+    <p class="ing-product">Salsa, Queso, Jamón, Piña</p>
+    <p class="price-product">$10.990</p>
+    </div>
+        <div class="ventana-pizza" id="ventana-pizza-hawaiana-familiar" hidden>
+            
+      <center><button type="button" class="buttons" onclick="agregarhawaianafamiliar()" id="agregar-hawaiana-familiar-button">Agregar</button> <button type="button" class="button-select" id="borrar-hawaiana-button" onclick="borrarhawaianafamiliar()">Cancelar</button></center>
+      <br><br><br></div>
+    <br>
+    <br>
+    <div class="content-product" onclick="superbeeffamiliar()">
+        
+        <img src="/palmaspizzaIMG/superbeef.png" height="100" style="border-bottom: 0px;" alt="">
+    <h2 class="name-product">Super Beef</h2>
+    <p class="ing-product">Salsa, Queso, Jamón, Pepperoni, Salchicha, Tocino</p>
+    <p class="price-product">$10.990</p>
+    </div>
+        <div class="ventana-pizza" id="ventana-pizza-superbeef-familiar" hidden>
+            
+      <center><button type="button" class="buttons" onclick="agregarsuperbeeffamiliar()" id="agregar-superbeef-familiar-button">Agregar</button> <button type="button" class="button-select" id="borrar-superbeef-button" onclick="borrarsuperbeeffamiliar()">Cancelar</button></center>
+      <br><br><br></div>
+    <br>
+    <br>
+    <div class="content-product" onclick="lucopizzafamiliar()">
+        
+        <img src="/palmaspizzaIMG/lucopizza.png" height="100" style="border-bottom: 0px;" alt="">
+    <h2 class="name-product">Luco Pizza</h2>
+    <p class="ing-product">Salsa, Queso, Tomate, Churrasco, Oregano</p>
+    <p class="price-product">$10.990</p>
+    </div>
+        <div class="ventana-pizza" id="ventana-pizza-lucopizza-familiar" hidden>
+            
+      <center><button type="button" class="buttons" onclick="agregarlucopizzafamiliar()" id="agregar-lucopizza-familiar-button">Agregar</button> <button type="button" class="button-select" id="borrar-lucopizza-button" onclick="borrarlucopizzafamiliar()">Cancelar</button></center>
+      <br><br><br></div>
+    <br>
+    <br>
+    <div class="content-product" onclick="napolitanafamiliar()">
+        
+        <img src="/palmaspizzaIMG/napolitana.png" height="100" style="border-bottom: 0px;" alt="">
+    <h2 class="name-product">Napolitana</h2>
+    <p class="ing-product">Salsa, Queso, Tomate</p>
+    <p class="price-product">$10.990</p>
+    </div>
+        <div class="ventana-pizza" id="ventana-pizza-napolitana-familiar" hidden>
+            
+      <center><button type="button" class="buttons" onclick="agregarnapolitanafamiliar()" id="agregar-napolitana-familiar-button">Agregar</button> <button type="button" class="button-select" id="borrar-napolitana-button" onclick="borrarnapolitanafamiliar()">Cancelar</button></center>
+      <br><br><br></div>
+    <br>
+    <br>
+    <div class="content-product" onclick="superpepperonifamiliar()">
+        
+        <img src="/palmaspizzaIMG/superpepperoni.png" height="100" style="border-bottom: 0px;" alt="">
+    <h2 class="name-product">Super Pepperoni</h2>
+    <p class="ing-product">Salsa, Queso, Extra Pepperoni</p>
+    <p class="price-product">$10.990</p>
+    </div>
+        <div class="ventana-pizza" id="ventana-pizza-superpepperoni-familiar" hidden>
+            
+      <center><button type="button" class="buttons" onclick="agregarsuperpepperonifamiliar()" id="agregar-superpepperoni-familiar-button">Agregar</button> <button type="button" class="button-select" id="borrar-superpepperoni-button" onclick="borrarsuperpepperonifamiliar()">Cancelar</button></center>
+      <br><br><br></div>
+    <br>
+    <br>
+    <div class="content-product" onclick="vegetarianafamiliar()">
+        
+        <img src="/palmaspizzaIMG/vegetariana.png" height="100" style="border-bottom: 0px;" alt="">
+    <h2 class="name-product">Vegetariana</h2>
+    <p class="ing-product">Salsa, Queso, Cebolla, Tomate, Champiñón, Choclo, Pimentón</p>
+    <p class="price-product">$10.990</p>
+    </div>
+        <div class="ventana-pizza" id="ventana-pizza-vegetariana-familiar" hidden>
+            
+      <center><button type="button" class="buttons" onclick="agregarvegetarianafamiliar()" id="agregar-vegetariana-familiar-button">Agregar</button> <button type="button" class="button-select" id="borrar-vegetariana-button" onclick="borrarvegetarianafamiliar()">Cancelar</button></center>
+      <br><br><br></div>
+      <br  id="pizzas-medianas">   
+      <br>
+    <br>
+   
+
+    <h2 style="margin-left: 3%;">Pizzas Medianas (32cm)</h2>
+    <div class="content-product" hidden id="armarsegundapizzamediana" onclick="armatuspizzas();Z();">
+        
+        <img src="/palmaspizzaIMG/armatupizzaimg.png" height="100" style="border-bottom: 0px;" alt="">
+    <h2 class="name-product">Armar 2da Pizza</h2>
+    <p class="ing-product" style="text-decoration: underline #ff5500;">Arma tu proxima pizza <span style="text-decoration: underline white;">(opcional)</span></p>
+    </div>
+
+    <div class="content-product" id="armarprimerapizzamediana" onclick="armatupizzaZ()">
+        
+        <img src="/palmaspizzaIMG/armatupizzaimg.png" height="100" style="border-bottom: 0px;" alt="">
+    <h2 class="name-product">Arma tu Pizza</h2>
+    <p class="ing-product" style="text-decoration: underline #ff5500;">Crea tu propia pizza con la salsa e ingredientes a tu gusto</p>
+    
+    </div>
+<div hidden  id="ventana-pizza-armatupizzamediana">
+    <div class="ventana-pizza">
+            
+        <center><button type="button" class="buttons" onclick="seleccionarsalsa();APIZZAM();ZR()" id="agregar-armatupizzamediana-button">Armar</button> <button type="button" class="button-select" id="borrar-armatupizza-button" onclick="borrararmatupizza();">Cancelar</button></center>
+        <br><br><br></div>
+    <br><br><br>
+</div>
+<br><br><br><br>
+<!-- chillian mediana -->
+<div class="content-product" onclick="chillianmediana()">
+        
+    <img src="/palmaspizzaIMG/chillian.jpg" height="100" style="border-bottom: 0px;" alt="">
+<h2 class="name-product">Chillian</h2>
+<p class="ing-product">Salsa, Queso, Jamón, Pepperoni, Pimentón, Cebolla</p>
+<p class="price-product">$8.990</p>
+</div>
+    <div class="ventana-pizza" id="ventana-pizza-chillian-mediana" hidden>
+        
+  <center><button type="button" class="buttons" onclick="agregarchillianmediana()" id="agregar-chillian-mediana-button">Agregar</button> <button type="button" class="button-select" id="borrar-chillian-button" onclick="borrarchillianmediana()">Cancelar</button></center>
+  <br><br><br></div>
+
+    <br><br>
+    <div class="content-product" onclick="pollobbqmediana()">
+        
+        <img src="/palmaspizzaIMG/pollobbq.png" height="100" style="border-bottom: 0px;" alt="">
+    <h2 class="name-product">Pollo BBQ</h2>
+    <p class="ing-product">Salsa BarBeQue, Queso, Jamón, Pepperoni, Pimentón, Cebolla</p>
+    <p class="price-product">$8.990</p>
+    </div>
+        <div class="ventana-pizza" id="ventana-pizza-pollobbq-mediana" hidden>
+            
+      <center><button type="button" class="buttons" onclick="agregarpollobbqmediana()" id="agregar-pollobbq-mediana-button">Agregar</button> <button type="button" class="button-select" id="borrar-pollobbq-button" onclick="borrarpollobbqmediana()">Cancelar</button></center>
+      <br><br><br></div>
+    <br><br>
+ <div class="content-product" onclick="italianamediana()">
+        
+    <img src="/palmaspizzaIMG/italiana.png" height="100" style="border-bottom: 0px;" alt="">
+<h2 class="name-product">Italiana</h2>
+<p class="ing-product">Salsa, Queso, Champiñón, Aceituna, Pepperoni, Salchicha</p>
+<p class="price-product">$8.990</p>
+</div>
+    <div class="ventana-pizza" id="ventana-pizza-italiana-mediana" hidden>
+        
+  <center><button type="button" class="buttons" onclick="agregaritalianamediana()" id="agregar-italiana-mediana-button">Agregar</button> <button type="button" class="button-select" id="borrar-italiana-button" onclick="borraritalianamediana()">Cancelar</button></center>
+  <br><br><br></div>
+    <br>
+    <br>
+    <div class="content-product" onclick="cheeseburgermediana()">
+        
+        <img src="/palmaspizzaIMG/cheeseburger.png" height="100" style="border-bottom: 0px;" alt="">
+    <h2 class="name-product">Cheeseburger</h2>
+    <p class="ing-product">Salsa BarBeQue, Queso, Cebolla, Tocino, Carne</p>
+    <p class="price-product">$8.990</p>
+    </div>
+        <div class="ventana-pizza" id="ventana-pizza-cheeseburger-mediana" hidden>
+            
+      <center><button type="button" class="buttons" onclick="agregarcheeseburgermediana()" id="agregar-cheeseburger-mediana-button">Agregar</button> <button type="button" class="button-select" id="borrar-cheeseburger-button" onclick="borrarcheeseburgermediana()">Cancelar</button></center>
+      <br><br><br></div>
+    <br>
+    <br>
+    <div class="content-product" onclick="hawaianamediana()">
+        
+        <img src="/palmaspizzaIMG/hawaiana.png" height="100" style="border-bottom: 0px;" alt="">
+    <h2 class="name-product">Hawaiana</h2>
+    <p class="ing-product">Salsa, Queso, Jamón, Piña</p>
+    <p class="price-product">$8.990</p>
+    </div>
+        <div class="ventana-pizza" id="ventana-pizza-hawaiana-mediana" hidden>
+            
+      <center><button type="button" class="buttons" onclick="agregarhawaianamediana()" id="agregar-hawaiana-mediana-button">Agregar</button> <button type="button" class="button-select" id="borrar-hawaiana-button" onclick="borrarhawaianamediana()">Cancelar</button></center>
+      <br><br><br></div>
+    <br>
+    <br>
+    <div class="content-product" onclick="superbeefmediana()">
+        
+        <img src="/palmaspizzaIMG/superbeef.png" height="100" style="border-bottom: 0px;" alt="">
+    <h2 class="name-product">Super Beef</h2>
+    <p class="ing-product">Salsa, Queso, Jamón, Pepperoni, Salchicha, Tocino</p>
+    <p class="price-product">$8.990</p>
+    </div>
+        <div class="ventana-pizza" id="ventana-pizza-superbeef-mediana" hidden>
+            
+      <center><button type="button" class="buttons" onclick="agregarsuperbeefmediana()" id="agregar-superbeef-mediana-button">Agregar</button> <button type="button" class="button-select" id="borrar-superbeef-button" onclick="borrarsuperbeefmediana()">Cancelar</button></center>
+      <br><br><br></div>
+    <br>
+    <br>
+    <div class="content-product" onclick="lucopizzamediana()">
+        
+        <img src="/palmaspizzaIMG/lucopizza.png" height="100" style="border-bottom: 0px;" alt="">
+    <h2 class="name-product">Luco Pizza</h2>
+    <p class="ing-product">Salsa, Queso, Tomate, Churrasco, Oregano</p>
+    <p class="price-product">$8.990</p>
+    </div>
+        <div class="ventana-pizza" id="ventana-pizza-lucopizza-mediana" hidden>
+            
+      <center><button type="button" class="buttons" onclick="agregarlucopizzamediana()" id="agregar-lucopizza-mediana-button">Agregar</button> <button type="button" class="button-select" id="borrar-lucopizza-button" onclick="borrarlucopizzamediana()">Cancelar</button></center>
+      <br><br><br></div>
+    <br>
+    <br>
+    <div class="content-product" onclick="napolitanamediana()">
+        
+        <img src="/palmaspizzaIMG/napolitana.png" height="100" style="border-bottom: 0px;" alt="">
+    <h2 class="name-product">Napolitana</h2>
+    <p class="ing-product">Salsa, Queso, Tomate</p>
+    <p class="price-product">$8.990</p>
+    </div>
+        <div class="ventana-pizza" id="ventana-pizza-napolitana-mediana" hidden>
+            
+      <center><button type="button" class="buttons" onclick="agregarnapolitanamediana()" id="agregar-napolitana-mediana-button">Agregar</button> <button type="button" class="button-select" id="borrar-napolitana-button" onclick="borrarnapolitanamediana()">Cancelar</button></center>
+      <br><br><br></div>
+    <br>
+    <br>
+    <div class="content-product" onclick="superpepperonimediana()">
+        
+        <img src="/palmaspizzaIMG/superpepperoni.png" height="100" style="border-bottom: 0px;" alt="">
+    <h2 class="name-product">Super Pepperoni</h2>
+    <p class="ing-product">Salsa, Queso, Extra Pepperoni</p>
+    <p class="price-product">$8.990</p>
+    </div>
+        <div class="ventana-pizza" id="ventana-pizza-superpepperoni-mediana" hidden>
+            
+      <center><button type="button" class="buttons" onclick="agregarsuperpepperonimediana()" id="agregar-superpepperoni-mediana-button">Agregar</button> <button type="button" class="button-select" id="borrar-superpepperoni-button" onclick="borrarsuperpepperonimediana()">Cancelar</button></center>
+      <br><br><br></div>
+    <br id="agregar-vegetariana">
+    <br>
+    <div class="content-product" onclick="vegetarianamediana();location.href='#agregar-vegetariana'">
+        
+        <img src="/palmaspizzaIMG/vegetariana.png" height="100" style="border-bottom: 0px;" alt="">
+    <h2 class="name-product">Vegetariana</h2>
+    <p class="ing-product">Salsa, Queso, Cebolla, Tomate, Champiñón, Choclo, Pimentón</p>
+    <p class="price-product">$8.990</p>
+    </div>
+        <div class="ventana-pizza" id="ventana-pizza-vegetariana-mediana" hidden>
+            
+      <center><button type="button" class="buttons" onclick="agregarvegetarianamediana()" id="agregar-vegetariana-mediana-button">Agregar</button> <button type="button" class="button-select" id="borrar-vegetariana-button" onclick="borrarvegetarianamediana()">Cancelar</button></center>
+      <br><br><br></div>
+<br>
+
+</div>
+
+<input type="text" id="chilliantamañofamiliar" hidden>
+<input type="text" id="pollobbqtamañofamiliar" hidden>
+<input type="text" id="italianatamañofamiliar" hidden>
+<input type="text" id="cheeseburgertamañofamiliar" hidden>
+<input type="text" id="hawaianatamañofamiliar" hidden>
+<input type="text" id="superbeeftamañofamiliar" hidden>
+<input type="text" id="lucopizzatamañofamiliar" hidden>
+<input type="text" id="napolitanatamañofamiliar" hidden>
+<input type="text" id="superpepperonitamañofamiliar" hidden>
+<input type="text" id="vegetarianatamañofamiliar" hidden>
+
+
+<input type="text" id="chilliantamañomediana" hidden>
+<input type="text" id="pollobbqtamañomediana" hidden>
+<input type="text" id="italianatamañomediana" hidden>
+<input type="text" id="cheeseburgertamañomediana" hidden>
+<input type="text" id="hawaianatamañomediana" hidden>
+<input type="text" id="superbeeftamañomediana" hidden>
+<input type="text" id="lucopizzatamañomediana" hidden>
+<input type="text" id="napolitanatamañomediana" hidden>
+<input type="text" id="superpepperonitamañomediana" hidden>
+<input type="text" id="vegetarianatamañomediana" hidden>
+
+<div>
+
+</div>
+    
+<div class="modal" id="formulario" style="z-index: 15; background: transparent;">
+    <div class="modal-content" style="min-height: 100%; width: 100%; margin-top: 70px; margin-bottom: 0;">
+<center>
+    <h1 style="text-decoration: #ff5500 underline;">Finalizar Pedido</h1>
+    <h2>Ingresa tus datos y envíalo</h2>
+    <h3 style="text-decoration: underline grey; color: #ff4800;">Será necesario ingresar tus datos únicamente en la primera ocasión en que realices un pedido.</h3>
+</center>
+<label for="nombre" style="font-size: 110%;" class="formulario__label" >Nombre:⬇</label><br>
+<input type="text" class="formulario__input" id="nombre">
+<br><br>
+<label for="telefono" style="font-size: 110%;" class="formulario__label" >Teléfono:⬇</label><br>
+<input type="text" class="formulario__input" value="+56" id="telefono">
+
+<br><br>
+<label for="direccion" style="font-size: 110%;" class="formulario__label" >Dirección:⬇</label><br>
+<input type="text" class="formulario__input" placeholder="Casa/Piso/Depto" id="direccion">
+   
+
+
+<input type="text" id="pizzaunoX" hidden>
+   
+<input type="text" id="pizzadosX" hidden>
+<input type="text" id="pagare" hidden>
+<center>
+    <h3>⬇ Forma de pago ⬇</h3>
+    <button type="button" class="button-select" style="font-size: 110%;" id="efectivobutton" onclick="efectivobutton()">Efectivo</button>
+    <button type="button" class="button-select" style="font-size: 110%;" id="transferenciabutton" onclick="transferenciabutton()">Transferencia</button>
+    <input type="text" id="formadepago" hidden>
+<br><div id="respuesta" z-index="43874987487298437284 !important"></div><br>
+<br>
+<button type="button" class="whatsapp-button" onclick="guardarDatos()" id="enviar">Enviar</button>
+<br><br>
+</center>
+
+<div class="modal" id="efectivowindow">
+    <div class="modal-content" style="margin-top: 40%;">
+<center>
+    <h2>¿Con cuanto dinero pagarás?</h2>
+<br>
+<input type="text" id="concuantocancela" onkeyup="formatNumber(this)"  placeholder="$" class="formulario__input" style="border-left: 0px; margin-left: -10px; width: 100%; text-align: center; font-size: 130%;">
+<br>
+<button type="button" class="buttons" onclick="document.getElementById('efectivowindow').style.display = 'none';">Aceptar</button>
+</center>
+
+
+<script>
+    function formatNumber(input) {
+        var value = input.value;
+        value = value.replace(/\D/g,""); // remove any non-digit characters
+        value = value.replace(/\B(?=(\d{3})+(?!\d))/g, "."); // add dot every 3 digits from right
+        input.value = value;
+    }
+    </script>
+    </div>
+
+</div>
+
+</div>
+</div>
+</body>
+</html>
